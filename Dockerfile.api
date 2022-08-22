@@ -1,0 +1,16 @@
+FROM node:14
+
+# Add yarn support
+RUN apt-get update && apt-get -y install yarn
+
+WORKDIR /usr/src/app
+
+COPY ./api ./api
+
+WORKDIR /usr/src/app/api
+
+RUN yarn install
+
+EXPOSE 3002
+
+CMD ["yarn", "start:dev"]

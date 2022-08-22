@@ -1,0 +1,15 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "scripts": {
+    "docker-compose:rm": "docker-compose rm",
+    "docker-compose": "docker-compose up --build"
+  },
+  "workspaces": {
+    "packages": [
+      "api/*",
+      "web/*"
+    ]
+  },
+  "private": true
+}

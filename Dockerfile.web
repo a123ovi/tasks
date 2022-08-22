@@ -1,0 +1,17 @@
+FROM node:16
+
+# Add yarn support
+RUN apt-get update && apt-get -y install yarn
+
+WORKDIR /usr/src/app
+
+COPY ./web ./web
+
+WORKDIR /usr/src/app/web
+
+RUN yarn install
+RUN yarn add react-scripts@5.0.1
+
+EXPOSE 3000
+
+CMD ["yarn", "start:dev"]
